@@ -1,17 +1,25 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { CartButtonComponent } from '../counter-button/counter-button.component';
+
 
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CartButtonComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-   productList = [
+  showCounter = false;
+  
+  addToCart() {
+    this.showCounter = true;
+  }
+
+  productList = [
     {
       image: {
         thumbnail: "./assets/images/image-waffle-thumbnail.jpg",
@@ -112,5 +120,7 @@ export class ProductComponent {
       price: 6.50
     }
   ];
+  
+
 
 }

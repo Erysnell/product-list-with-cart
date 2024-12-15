@@ -1,10 +1,19 @@
+
 <h1>Desserts</h1>
+<section class="product-container">
 @for (product of productList; track product) {
-<div class="product">
-  <img [src]="product.image.desktop" [alt]="product.name">
-  <button> <img src="/src/assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-  <h2>{{product.name}}</h2>
-  <p class="category">{{product.category}}</p>
-  <p class="price">${{product.price}}</p>
+<div class="product-card">
+  <img class="product-image" [src]="product.image.desktop" [alt]="product.name">
+  <button class="add-button"> <img id="img" src="../assets/images/icon-add-to-cart.svg" alt="" (click)="addToCart()"> Add to Cart</button>
+  @if (showCounter == true) {
+    <counter-button [productName]="product.name"></counter-button>
+  }
+  <p class="product-category">{{product.category}}</p>
+  <h2 class="product-name">{{product.name}}</h2>
+  <p class="product-price">${{product.price}}</p>
 </div>
 }
+
+
+</section>
+
