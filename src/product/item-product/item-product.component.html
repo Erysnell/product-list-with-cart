@@ -1,0 +1,12 @@
+<div class="product-card">
+    <img  class="product-image" [src]="item.image.desktop" [alt]="item.name">
+    @if (!showCounter) {
+        <button class="add-button" (click)="addToCart()"> <img id="img" src="../assets/images/icon-add-to-cart.svg" alt="a-icon">Add to Cart</button>
+    }
+    @if (showCounter) {
+        <counter-button [productName]="item.name"></counter-button>
+    }
+    <p class="product-category">{{item.category}}</p>
+    <h2 class="product-name">{{item.name}}</h2>
+     <p class="product-price">${{item.price}}</p>
+</div>
